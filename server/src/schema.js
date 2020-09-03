@@ -8,25 +8,27 @@ const typeDefs = gql`
   type Lesson {
     id: ID!
     subject: String!
-    group: Group!
+    group: String!
     start: String!
     end: String!
-    teacher: Teacher!
+    teacher: String!
     cabinet: String!
   }
   type Group {
+    id: ID!
     name: String!
-    schedule: [Day]!
+    schedule: [Day]
   }
   type Teacher {
+    id: ID!
     name: String!
-    schedule: [Day]!
+    schedule: [Day]
   }
   type Query {
-    teachers: [Teacher]
-    teacher: Teacher
-    groups: [Group]
-    group: Group
+    getTeachers: [Teacher]
+    getTeacherByName(name: String!): Teacher
+    getGroups: [Group]
+    getGroupByName(name: String!): Group
   }
 `;
 
